@@ -1,97 +1,66 @@
-# Discord Bot Feature Documentation
+# Discord Bot Feature Guide
 
 ---
 
-## 1. Auto-Moderation System (`automod.py`)
+## 1. Auto-Moderation System
 
-**Permissions Required:** `Manage Messages` *(administrators & moderators only)*
+**Who can manage this:** Server Administrators & Moderators (`Manage Messages` permission required)
 
-### Automated Server Shield (Passive Protection)
-The bot automatically scans incoming text messages in real time. If a non-administrative user posts content violating server guidelines, the bot instantly deletes the message and sends a self-deleting warning message (clears after 5 seconds).
+### How It Protects Your Server
+The bot keeps your server safe by automatically scanning text messages 24/7. If a non-admin posts something that violates community rules, the bot instantly deletes the message and posts a quick warning that disappears after 5 seconds.
 
-* **Banned Words Filter:** Blocks any message containing forbidden phrases specified in your server's banned word list.
-* **Invite Link Blocker:** Detects and removes unauthorized Discord server invite links (`discord.gg/...`, `discord.com/invite/...`).
-* **Anti-Spam / Mass-Mention Protection:** Flags and deletes messages tagging 5 or more users or roles simultaneously.
-* **Admin/Mod Exemption:** Server staff with `Manage Messages` permissions are automatically exempt from automod restrictions.
+* **Banned Words Filter:** Automatically blocks messages containing words or phrases on your banned list.
+* **Invite Link Blocker:** Stops unauthorized Discord server invite links (`discord.gg/...`) from being posted.
+* **Anti-Spam Protection:** Automatically flags and deletes messages that tag 5 or more members or roles at once.
+* **Staff Exemption:** Administrators and moderators are automatically exempt from these restrictions.
 
-### Management Commands
-| Command | Description | Example Usage |
+### Admin & Moderator Commands
+| Command | What It Does | Example |
 | :--- | :--- | :--- |
-| `/automod_add` | Adds a new term to the word filter and updates persistence immediately. | `/automod_add word: spamlink` |
-| `/automod_remove` | Removes a term from the active word filter list. | `/automod_remove word: spamlink` |
-
-### Configuration Structure (`automod_words.json`)
-```json
-{
-  "default_banned_words": [
-    "badword1",
-    "badword2",
-    "spam phrase"
-  ]
-}
-```
+| `/automod_add` | Adds a new word or phrase to the blocked list. | `/automod_add word: spamlink` |
+| `/automod_remove` | Removes a word or phrase from the blocked list. | `/automod_remove word: spamlink` |
 
 ---
 
-## 2. Auto-Role Assignment & Gatekeeper (`autorole.py`)
+## 2. Auto-Role & Server Verification
 
-**Permissions Required:** `Manage Roles` *(administrators & moderators only)*
+**Who can manage this:** Server Administrators & Moderators (`Manage Roles` permission required)
 
-### Overview & Verification Workflows
-The Auto-Role system manages member onboarding and server entry. It supports three operational modes:
+### How It Welcomes New Members
+This system manages how new members get their roles and access the server. You can choose one of three setup styles:
 
-* **Instant Auto-Grant:** Automatically assigns a designated role to new members upon joining.
-* **Button Verification Panel:** Displays an interactive button panel in a welcome or rules channel. Members click **Accept Rules & Verify** to receive their role.
-* **Passcode Gatekeeper:** Restricts entry until members submit a hidden server passcode using `/verify <code>`.
+* **Instant Role:** Automatically assigns a default role as soon as someone joins.
+* **Button Verification Panel:** Places a friendly button in your welcome or rules channel. Members simply click **Accept Rules & Verify** to get their role.
+* **Passcode Gatekeeper:** Hides access until new members type a secret password using the `/verify` command.
 
-### Management Commands
-| Command | Description | Example Usage |
+### Admin & Moderator Commands
+| Command | What It Does | Example |
 | :--- | :--- | :--- |
-| `/set_autorole` | Configures the default role granted on join or upon verification. | `/set_autorole role: @Member` |
-| `/setup_gatekeeper_button` | Deploys an interactive verification panel in the active channel. | `/setup_gatekeeper_button role: @Verified` |
-| `/set_gatekeeper_code` | Configures the secret passcode required for gatekeeper access. | `/set_gatekeeper_code code: SecretRuleCode2026` |
+| `/set_autorole` | Chooses which role new members receive upon joining or verifying. | `/set_autorole role: @Member` |
+| `/setup_gatekeeper_button` | Posts an interactive verification button panel in the current channel. | `/setup_gatekeeper_button role: @Verified` |
+| `/set_gatekeeper_code` | Sets the secret password members must enter to gain access. | `/set_gatekeeper_code code: SecretRuleCode2026` |
 
 ### Member Commands
-| Command | Description | Example Usage |
+| Command | What It Does | Example |
 | :--- | :--- | :--- |
-| `/verify` | Submits the server passcode to unlock access. | `/verify code: SecretRuleCode2026` |
-
-### Configuration Structure (`autorole_config.json`)
-```json
-{
-  "123456789012345678": {
-    "default_role_id": 987654321098765432,
-    "gatekeeper_code": "SecretRuleCode2026"
-  }
-}
-```
+| `/verify` | Enter the server's secret password to unlock channels. | `/verify code: SecretRuleCode2026` |
 
 ---
 
-## 3. Mini-Games & Mini-Economy (`minigames.py`)
+## 3. Mini-Games & Server Economy
 
-**Permissions Required:** None *(available to all server members by default)*
+**Who can use this:** Available to everyone in the server!
 
-### Economy & Daily Rewards
-Each member starts with an automatic starting balance of 100 coins. Users can collect daily rewards and check their wallet at any time:
+### How the Economy Works
+Every member receives 100 bonus coins to start! You can claim free daily rewards, check your wallet, or play fun mini-games to build up your coin balance.
 
-* **Daily Rewards:** Claims a daily bonus of 100–250 coins with a strict 24-hour cooldown timer per user.
-* **Wallet Balance:** Displays the user's current coin balance in chat.
+* **Daily Coins:** Collect 100 to 250 free coins every 24 hours.
+* **Starting Balance:** Every new user starts with 100 coins automatically.
 
-### Member Commands
-| Command | Description | Example Usage |
+### Commands for Everyone
+| Command | What It Does | Example |
 | :--- | :--- | :--- |
-| `/daily` | Claims a daily bonus of 100–250 coins (24-hour cooldown). | `/daily` |
-| `/balance` | Displays your current coin balance in chat. | `/balance` |
-| `/coinflip` | Wager coins on a 50/50 flip (Heads or Tails). Double your bet on a win! | `/coinflip choice: Heads bet: 50` |
-| `/blackjack` | Play a live hand of Blackjack against the dealer using interactive Hit and Stand buttons. Natural Blackjack pays 3:2! | `/blackjack bet: 100` |
-
-### Data Persistence (`minigames_data.json`)
-```json
-{
-  "123456789012345678": {
-    "balance": 350,
-    "last_daily": 1755500000.0
-  }
-}
-```
+| `/daily` | Claim your free daily coins (available once every 24 hours). | `/daily` |
+| `/balance` | Check how many coins you currently have in your wallet. | `/balance` |
+| `/coinflip` | Bet coins on a 50/50 coin toss (Heads or Tails). Win to double your bet! | `/coinflip choice: Heads bet: 50` |
+| `/blackjack` | Play a hand of Blackjack against the bot dealer using interactive Hit and Stand buttons! | `/blackjack bet: 100` |
