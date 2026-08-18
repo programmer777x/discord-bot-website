@@ -1,1 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LuMi Bot - Theme Selection Hub</title>
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            discord: '#5865F2',
+            darkBg: '#090D16',
+            cardBg: '#131B2E',
+            accentViolet: '#7C3AED',
+            accentCyan: '#06B6D4',
+            accentIndigo: '#4F46E5',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .theme-card {
+      background: rgba(19, 27, 46, 0.7);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
+    }
+    .theme-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(124, 58, 237, 0.5);
+      box-shadow: 0 12px 30px rgba(124, 58, 237, 0.25);
+    }
+  </style>
+</head>
+<body class="bg-darkBg text-slate-100 font-sans antialiased min-h-screen flex flex-col justify-between">
 
+  <!-- Header -->
+  <header class="py-8 px-6 border-b border-slate-800/80 bg-slate-950/40">
+    <div class="max-w-6xl mx-auto flex justify-between items-center">
+      <div class="flex items-center space-x-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-accentViolet to-discord flex items-center justify-center text-white text-xl font-bold shadow-lg shadow-accentViolet/30">
+          <i class="fa-solid fa-robot"></i>
+        </div>
+        <div>
+          <span class="text-xl font-extrabold tracking-wide text-white">LuMi <span class="text-transparent bg-clip-text bg-gradient-to-r from-discord to-accentViolet">Bot</span></span>
+          <span class="block text-[10px] text-slate-400 font-mono tracking-wider uppercase">Design Prototype Hub</span>
+        </div>
+      </div>
+      <span class="text-xs font-mono bg-slate-800/80 text-slate-300 border border-slate-700 px-3 py-1.5 rounded-full">
+        <i class="fa-solid fa-code-branch text-accentCyan mr-1"></i> Stage 1: Theme Selection
+      </span>
+    </div>
+  </header>
+
+  <!-- Main Showcase Container -->
+  <main class="py-16 px-6 max-w-6xl mx-auto w-full">
+    <div class="text-center mb-16">
+      <h1 class="text-4xl md:text-5xl font-black text-white tracking-tight mb-4">
+        Select a Design Concept
+      </h1>
+      <p class="text-slate-400 text-base md:text-lg max-w-2xl mx-auto">
+        Choose a layout style below to preview how LuMi Bot's features, commands, and documentation will be structured.
+      </p>
+    </div>
+
+    <!-- 3 Theme Cards Grid -->
+    <div class="grid md:grid-cols-3 gap-8">
+
+      <!-- Card 1: Modern Tech Dark -->
+      <div class="theme-card rounded-2xl p-6 flex flex-col justify-between">
+        <div>
+          <div class="flex justify-between items-center mb-6">
+            <div class="w-12 h-12 rounded-xl bg-discord/10 border border-discord/30 text-discord flex items-center justify-center text-2xl">
+              <i class="fa-solid fa-chart-line"></i>
+            </div>
+            <span class="text-[11px] font-mono font-semibold text-discord bg-discord/10 px-2.5 py-1 rounded-full border border-discord/20">
+              Option 01
+            </span>
+          </div>
+
+          <h2 class="text-2xl font-bold text-white mb-2">Modern Tech Dark</h2>
+          <p class="text-slate-400 text-sm leading-relaxed mb-6">
+            Industry standard dark mode featuring dynamic server stat counters, glassmorphism card grids, and interactive command filtering tabs.
+          </p>
+
+          <div class="space-y-2 mb-8 text-xs text-slate-300 font-medium">
+            <div class="flex items-center space-x-2">
+              <i class="fa-solid fa-circle-check text-discord"></i>
+              <span>Live stats counter module</span>
+            </div>
+            <div class="flex items-center space-x-2">
+              <i class="fa-solid fa-circle-check text-discord"></i>
+              <span>Tabbed command filter list</span>
+            </div>
+            <div class="flex items-center space-x-2">
+              <i class="fa-solid fa-circle-check text-discord"></i>
+              <span>High-contrast Blurple styling</span>
+            </div>
+          </div>
+        </div>
+
+        <a href="modern-tech-dark.html" class="w-full bg-discord hover:bg-discord/90 text-white font-semibold py-3 px-4 rounded-xl text-sm transition-all flex items-center justify-center space-x-2 shadow-lg shadow-discord/25">
+          <span>Preview Theme</span>
+          <i class="fa-solid fa-arrow-right text-xs"></i>
+        </a>
+      </div>
+
+      <!-- Card 2: Clean Enterprise Minimalist -->
+      <div class="theme-card rounded-2xl p-6 flex flex-col justify-between">
+        <div>
+          <div class="flex justify-between items-center mb-6">
+            <div class="w-12 h-12 rounded-xl bg-accentIndigo/10 border border-accentIndigo/30 text-accentIndigo flex items-center justify-center text-2xl">
+              <i class="fa-solid fa-cube"></i>
+            </div>
+            <span class="text-[11px] font-mono font-semibold text-accentIndigo bg-accentIndigo/10 px-2.5 py-1 rounded-full border border-accentIndigo/20">
+              Option 02
+            </span>
+          </div>
+
+          <h2 class="text-2xl font-bold text-white mb-2">Enterprise Minimalist</h2>
+          <p class="text-slate-400 text-sm leading-relaxed mb-6">
+            Clean, structured off-white and cool indigo design focusing on security, documentation, horizontal module previews, and audit logs.
+          </p>
+
+          <div class="space-y-2 mb-8 text-xs text-slate-300 font-medium">
+            <div class="flex items-center space-x-2">
+              <i class="fa-solid fa-circle-check text-accentIndigo"></i>
+              <span>Split hero with Discord embed</span>
+            </div>
+            <div class="flex items-center space-x-2">
+              <i class="fa-solid fa-circle-check text-accentIndigo"></i>
+              <span>Horizontal feature blocks</span>
+            </div>
+            <div class="flex items-center space-x-2">
+              <i class="fa-solid fa-circle-check text-accentIndigo"></i>
+              <span>Audit record console preview</span>
+            </div>
+          </div>
+        </div>
+
+        <a href="clean-enterprise-minimalist.html" class="w-full bg-accentIndigo hover:bg-indigo-600 text-white font-semibold py-3 px-4 rounded-xl text-sm transition-all flex items-center justify-center space-x-2 shadow-lg shadow-accentIndigo/25">
+          <span>Preview Theme</span>
+          <i class="fa-solid fa-arrow-right text-xs"></i>
+        </a>
+      </div>
+
+      <!-- Card 3: Vibrant Gamer Cyber -->
+      <div class="theme-card rounded-2xl p-6 flex flex-col justify-between">
+        <div>
+          <div class="flex justify-between items-center mb-6">
+            <div class="w-12 h-12 rounded-xl bg-accentViolet/10 border border-accentViolet/30 text-accentViolet flex items-center justify-center text-2xl">
+              <i class="fa-solid fa-gamepad"></i>
+            </div>
+            <span class="text-[11px] font-mono font-semibold text-accentViolet bg-accentViolet/10 px-2.5 py-1 rounded-full border border-accentViolet/20">
+              Option 03
+            </span>
+          </div>
+
+          <h2 class="text-2xl font-bold text-white mb-2">Vibrant Gamer Cyber</h2>
+          <p class="text-slate-400 text-sm leading-relaxed mb-6">
+            High-energy, gaming-centric layout with neon violet accents, pill-badge category tags, active chat UI mockups, and a 3-step setup timeline.
+          </p>
+
+          <div class="space-y-2 mb-8 text-xs text-slate-300 font-medium">
+            <div class="flex items-center space-x-2">
+              <i class="fa-solid fa-circle-check text-accentViolet"></i>
+              <span>Live Discord chat component</span>
+            </div>
+            <div class="flex items-center space-x-2">
+              <i class="fa-solid fa-circle-check text-accentViolet"></i>
+              <span>3-step setup onboarding timeline</span>
+            </div>
+            <div class="flex items-center space-x-2">
+              <i class="fa-solid fa-circle-check text-accentViolet"></i>
+              <span>Electric violet gradient accents</span>
+            </div>
+          </div>
+        </div>
+
+        <a href="vibrant-gamer-cyber.html" class="w-full bg-accentViolet hover:bg-purple-600 text-white font-semibold py-3 px-4 rounded-xl text-sm transition-all flex items-center justify-center space-x-2 shadow-lg shadow-accentViolet/25">
+          <span>Preview Theme</span>
+          <i class="fa-solid fa-arrow-right text-xs"></i>
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="py-6 px-6 border-t border-slate-800/80 bg-slate-950/40 text-center text-xs text-slate-500">
+    <p>LuMi Bot Website Prototypes — Designed for GitHub Pages</p>
+  </footer>
+
+</body>
+</html>
