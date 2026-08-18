@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LuMi Bot - Theme Selection Hub</title>
+  <title>LuMiBot - Modern Discord Companion</title>
   <!-- Tailwind CSS via CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Font Awesome Icons -->
@@ -14,187 +14,237 @@
         extend: {
           colors: {
             discord: '#5865F2',
-            darkBg: '#090D16',
-            cardBg: '#131B2E',
-            accentViolet: '#7C3AED',
+            darkBg: '#0F172A',
+            cardBg: 'rgba(30, 41, 59, 0.7)',
             accentCyan: '#06B6D4',
-            accentIndigo: '#4F46E5',
           }
         }
       }
     }
   </script>
   <style>
-    .theme-card {
-      background: rgba(19, 27, 46, 0.7);
+    .glass-card {
+      background: rgba(30, 41, 59, 0.6);
       backdrop-filter: blur(12px);
       border: 1px solid rgba(255, 255, 255, 0.1);
-      transition: all 0.3s ease;
     }
-    .theme-card:hover {
-      transform: translateY(-6px);
-      border-color: rgba(124, 58, 237, 0.5);
-      box-shadow: 0 12px 30px rgba(124, 58, 237, 0.25);
+    .glass-card:hover {
+      border-color: rgba(88, 101, 242, 0.5);
+      box-shadow: 0 0 25px rgba(88, 101, 242, 0.2);
     }
   </style>
 </head>
-<body class="bg-darkBg text-slate-100 font-sans antialiased min-h-screen flex flex-col justify-between">
+<body class="bg-darkBg text-slate-100 font-sans antialiased selection:bg-discord selection:text-white min-h-screen flex flex-col">
 
-  <!-- Header -->
-  <header class="py-8 px-6 border-b border-slate-800/80 bg-slate-950/40">
-    <div class="max-w-6xl mx-auto flex justify-between items-center">
+  <!-- Navigation -->
+  <nav class="sticky top-0 z-50 glass-card border-b border-slate-800 px-6 py-4">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
       <div class="flex items-center space-x-3">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-accentViolet to-discord flex items-center justify-center text-white text-xl font-bold shadow-lg shadow-accentViolet/30">
+        <div class="w-10 h-10 rounded-full bg-discord flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-discord/30">
           <i class="fa-solid fa-robot"></i>
         </div>
-        <div>
-          <span class="text-xl font-extrabold tracking-wide text-white">LuMi <span class="text-transparent bg-clip-text bg-gradient-to-r from-discord to-accentViolet">Bot</span></span>
-          <span class="block text-[10px] text-slate-400 font-mono tracking-wider uppercase">Design Prototype Hub</span>
+        <span class="text-xl font-bold tracking-wide text-white">LuMi<span class="text-discord">Bot</span></span>
+      </div>
+      <div class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-300">
+        <a href="#features" class="hover:text-discord transition-colors">Features</a>
+        <a href="#commands" class="hover:text-discord transition-colors">Commands</a>
+        <a href="#docs" class="hover:text-discord transition-colors">Setup Guide</a>
+        <a href="#support" class="hover:text-discord transition-colors">Support</a>
+      </div>
+      <a href="#" class="bg-discord hover:bg-discord/90 text-white px-5 py-2.5 rounded-lg text-sm font-semibold transition-all shadow-md shadow-discord/20 flex items-center space-x-2">
+        <i class="fa-brands fa-discord"></i>
+        <span>Add to Discord</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="relative pt-20 pb-16 px-6 text-center max-w-5xl mx-auto flex-grow flex flex-col justify-center items-center">
+    <div class="inline-flex items-center space-x-2 bg-slate-800/80 border border-slate-700 rounded-full px-4 py-1.5 text-xs text-slate-300 mb-6">
+      <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+      <span>Public Beta — Active Development</span>
+    </div>
+    
+    <h1 class="text-5xl md:text-6xl font-extrabold tracking-tight text-white mb-6 leading-tight">
+      Smarter Automation for Your Growing <span class="text-transparent bg-clip-text bg-gradient-to-r from-discord via-indigo-400 to-accentCyan">Discord Community</span>
+    </h1>
+    
+    <p class="text-slate-400 text-lg md:text-xl max-w-2xl mb-10 leading-relaxed">
+      LuMiBot gives you full control with essential moderation tools, support ticketing, and custom commands. Lightweight, modular, and built to scale with your server.
+    </p>
+
+    <div class="flex flex-col sm:flex-row items-center gap-4 w-full justify-center mb-16">
+      <a href="#" class="w-full sm:w-auto bg-discord hover:bg-discord/90 text-white px-8 py-3.5 rounded-xl text-base font-semibold transition-all shadow-lg shadow-discord/30 flex items-center justify-center space-x-3">
+        <i class="fa-brands fa-discord text-xl"></i>
+        <span>Invite LuMiBot</span>
+      </a>
+      <a href="#commands" class="w-full sm:w-auto glass-card hover:bg-slate-800 text-slate-200 px-8 py-3.5 rounded-xl text-base font-semibold transition-all flex items-center justify-center space-x-2">
+        <i class="fa-solid fa-code text-discord"></i>
+        <span>View Commands</span>
+      </a>
+    </div>
+
+    <!-- Operational Trust Highlights (Replaces Large User Stats) -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-3xl">
+      <div class="glass-card p-5 rounded-2xl flex items-center space-x-4">
+        <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-xl shrink-0">
+          <i class="fa-solid fa-bolt"></i>
+        </div>
+        <div class="text-left">
+          <div class="text-sm font-bold text-white">Low Latency</div>
+          <div class="text-xs text-slate-400">Fast command execution</div>
         </div>
       </div>
-      <span class="text-xs font-mono bg-slate-800/80 text-slate-300 border border-slate-700 px-3 py-1.5 rounded-full">
-        <i class="fa-solid fa-code-branch text-accentCyan mr-1"></i> Stage 1: Theme Selection
-      </span>
+
+      <div class="glass-card p-5 rounded-2xl flex items-center space-x-4">
+        <div class="w-10 h-10 rounded-xl bg-discord/10 text-discord flex items-center justify-center text-xl shrink-0">
+          <i class="fa-solid fa-sliders"></i>
+        </div>
+        <div class="text-left">
+          <div class="text-sm font-bold text-white">100% Modular</div>
+          <div class="text-xs text-slate-400">Enable only what you need</div>
+        </div>
+      </div>
+
+      <div class="glass-card p-5 rounded-2xl flex items-center space-x-4">
+        <div class="w-10 h-10 rounded-xl bg-accentCyan/10 text-accentCyan flex items-center justify-center text-xl shrink-0">
+          <i class="fa-solid fa-headset"></i>
+        </div>
+        <div class="text-left">
+          <div class="text-sm font-bold text-white">Active Support</div>
+          <div class="text-xs text-slate-400">Direct assistance & updates</div>
+        </div>
+      </div>
     </div>
   </header>
 
-  <!-- Main Showcase Container -->
-  <main class="py-16 px-6 max-w-6xl mx-auto w-full">
+  <!-- Modular Feature Grid Section -->
+  <section id="features" class="py-20 px-6 max-w-7xl mx-auto border-t border-slate-800/60">
     <div class="text-center mb-16">
-      <h1 class="text-4xl md:text-5xl font-black text-white tracking-tight mb-4">
-        Select a Design Concept
-      </h1>
-      <p class="text-slate-400 text-base md:text-lg max-w-2xl mx-auto">
-        Choose a layout style below to preview how LuMi Bot's features, commands, and documentation will be structured.
-      </p>
+      <h2 class="text-xs uppercase tracking-widest text-discord font-bold mb-2">Core Capabilities</h2>
+      <p class="text-3xl font-bold text-white">Essential Features Ready to Deploy</p>
     </div>
 
-    <!-- 3 Theme Cards Grid -->
     <div class="grid md:grid-cols-3 gap-8">
-
-      <!-- Card 1: Modern Tech Dark -->
-      <div class="theme-card rounded-2xl p-6 flex flex-col justify-between">
-        <div>
-          <div class="flex justify-between items-center mb-6">
-            <div class="w-12 h-12 rounded-xl bg-discord/10 border border-discord/30 text-discord flex items-center justify-center text-2xl">
-              <i class="fa-solid fa-chart-line"></i>
-            </div>
-            <span class="text-[11px] font-mono font-semibold text-discord bg-discord/10 px-2.5 py-1 rounded-full border border-discord/20">
-              Option 01
-            </span>
-          </div>
-
-          <h2 class="text-2xl font-bold text-white mb-2">Modern Tech Dark</h2>
-          <p class="text-slate-400 text-sm leading-relaxed mb-6">
-            Industry standard dark mode featuring dynamic server stat counters, glassmorphism card grids, and interactive command filtering tabs.
-          </p>
-
-          <div class="space-y-2 mb-8 text-xs text-slate-300 font-medium">
-            <div class="flex items-center space-x-2">
-              <i class="fa-solid fa-circle-check text-discord"></i>
-              <span>Live stats counter module</span>
-            </div>
-            <div class="flex items-center space-x-2">
-              <i class="fa-solid fa-circle-check text-discord"></i>
-              <span>Tabbed command filter list</span>
-            </div>
-            <div class="flex items-center space-x-2">
-              <i class="fa-solid fa-circle-check text-discord"></i>
-              <span>High-contrast Blurple styling</span>
-            </div>
-          </div>
+      <!-- Feature Card 1 -->
+      <div class="glass-card p-8 rounded-2xl transition-all duration-300">
+        <div class="w-12 h-12 rounded-xl bg-discord/10 text-discord flex items-center justify-center text-2xl mb-6">
+          <i class="fa-solid fa-shield-halved"></i>
         </div>
-
-        <a href="modern-tech-dark.html" class="w-full bg-discord hover:bg-discord/90 text-white font-semibold py-3 px-4 rounded-xl text-sm transition-all flex items-center justify-center space-x-2 shadow-lg shadow-discord/25">
-          <span>Preview Theme</span>
-          <i class="fa-solid fa-arrow-right text-xs"></i>
+        <h3 class="text-xl font-bold text-white mb-3">Automated Moderation</h3>
+        <p class="text-slate-400 text-sm leading-relaxed mb-4">
+          Keep discussions clean with spam prevention, customizable warning systems, and auto-logging features.
+        </p>
+        <a href="#" class="text-xs font-semibold text-discord hover:underline inline-flex items-center space-x-1">
+          <span>Learn Setup</span>
+          <i class="fa-solid fa-arrow-right text-[10px]"></i>
         </a>
       </div>
 
-      <!-- Card 2: Clean Enterprise Minimalist -->
-      <div class="theme-card rounded-2xl p-6 flex flex-col justify-between">
-        <div>
-          <div class="flex justify-between items-center mb-6">
-            <div class="w-12 h-12 rounded-xl bg-accentIndigo/10 border border-accentIndigo/30 text-accentIndigo flex items-center justify-center text-2xl">
-              <i class="fa-solid fa-cube"></i>
-            </div>
-            <span class="text-[11px] font-mono font-semibold text-accentIndigo bg-accentIndigo/10 px-2.5 py-1 rounded-full border border-accentIndigo/20">
-              Option 02
-            </span>
-          </div>
-
-          <h2 class="text-2xl font-bold text-white mb-2">Enterprise Minimalist</h2>
-          <p class="text-slate-400 text-sm leading-relaxed mb-6">
-            Clean, structured off-white and cool indigo design focusing on security, documentation, horizontal module previews, and audit logs.
-          </p>
-
-          <div class="space-y-2 mb-8 text-xs text-slate-300 font-medium">
-            <div class="flex items-center space-x-2">
-              <i class="fa-solid fa-circle-check text-accentIndigo"></i>
-              <span>Split hero with Discord embed</span>
-            </div>
-            <div class="flex items-center space-x-2">
-              <i class="fa-solid fa-circle-check text-accentIndigo"></i>
-              <span>Horizontal feature blocks</span>
-            </div>
-            <div class="flex items-center space-x-2">
-              <i class="fa-solid fa-circle-check text-accentIndigo"></i>
-              <span>Audit record console preview</span>
-            </div>
-          </div>
+      <!-- Feature Card 2 -->
+      <div class="glass-card p-8 rounded-2xl transition-all duration-300">
+        <div class="w-12 h-12 rounded-xl bg-accentCyan/10 text-accentCyan flex items-center justify-center text-2xl mb-6">
+          <i class="fa-solid fa-ticket"></i>
         </div>
-
-        <a href="clean-enterprise-minimalist.html" class="w-full bg-accentIndigo hover:bg-indigo-600 text-white font-semibold py-3 px-4 rounded-xl text-sm transition-all flex items-center justify-center space-x-2 shadow-lg shadow-accentIndigo/25">
-          <span>Preview Theme</span>
-          <i class="fa-solid fa-arrow-right text-xs"></i>
+        <h3 class="text-xl font-bold text-white mb-3">Support Ticketing</h3>
+        <p class="text-slate-400 text-sm leading-relaxed mb-4">
+          Provide your members with a private, button-based ticket system to request help directly from moderators.
+        </p>
+        <a href="#" class="text-xs font-semibold text-accentCyan hover:underline inline-flex items-center space-x-1">
+          <span>Learn Setup</span>
+          <i class="fa-solid fa-arrow-right text-[10px]"></i>
         </a>
       </div>
 
-      <!-- Card 3: Vibrant Gamer Cyber -->
-      <div class="theme-card rounded-2xl p-6 flex flex-col justify-between">
-        <div>
-          <div class="flex justify-between items-center mb-6">
-            <div class="w-12 h-12 rounded-xl bg-accentViolet/10 border border-accentViolet/30 text-accentViolet flex items-center justify-center text-2xl">
-              <i class="fa-solid fa-gamepad"></i>
-            </div>
-            <span class="text-[11px] font-mono font-semibold text-accentViolet bg-accentViolet/10 px-2.5 py-1 rounded-full border border-accentViolet/20">
-              Option 03
-            </span>
-          </div>
-
-          <h2 class="text-2xl font-bold text-white mb-2">Vibrant Gamer Cyber</h2>
-          <p class="text-slate-400 text-sm leading-relaxed mb-6">
-            High-energy, gaming-centric layout with neon violet accents, pill-badge category tags, active chat UI mockups, and a 3-step setup timeline.
-          </p>
-
-          <div class="space-y-2 mb-8 text-xs text-slate-300 font-medium">
-            <div class="flex items-center space-x-2">
-              <i class="fa-solid fa-circle-check text-accentViolet"></i>
-              <span>Live Discord chat component</span>
-            </div>
-            <div class="flex items-center space-x-2">
-              <i class="fa-solid fa-circle-check text-accentViolet"></i>
-              <span>3-step setup onboarding timeline</span>
-            </div>
-            <div class="flex items-center space-x-2">
-              <i class="fa-solid fa-circle-check text-accentViolet"></i>
-              <span>Electric violet gradient accents</span>
-            </div>
-          </div>
+      <!-- Feature Card 3 -->
+      <div class="glass-card p-8 rounded-2xl transition-all duration-300">
+        <div class="w-12 h-12 rounded-xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center text-2xl mb-6">
+          <i class="fa-solid fa-wrench"></i>
         </div>
-
-        <a href="vibrant-gamer-cyber.html" class="w-full bg-accentViolet hover:bg-purple-600 text-white font-semibold py-3 px-4 rounded-xl text-sm transition-all flex items-center justify-center space-x-2 shadow-lg shadow-accentViolet/25">
-          <span>Preview Theme</span>
-          <i class="fa-solid fa-arrow-right text-xs"></i>
+        <h3 class="text-xl font-bold text-white mb-3">Utility & Commands</h3>
+        <p class="text-slate-400 text-sm leading-relaxed mb-4">
+          Access helpful administrative utilities, custom server info outputs, and customizable member tools.
+        </p>
+        <a href="#" class="text-xs font-semibold text-indigo-400 hover:underline inline-flex items-center space-x-1">
+          <span>Learn Setup</span>
+          <i class="fa-solid fa-arrow-right text-[10px]"></i>
         </a>
       </div>
-
     </div>
-  </main>
+  </section>
+
+  <!-- Command Showcase Section -->
+  <section id="commands" class="py-20 px-6 max-w-5xl mx-auto border-t border-slate-800/60">
+    <div class="text-center mb-12">
+      <h2 class="text-xs uppercase tracking-widest text-discord font-bold mb-2">Command Center</h2>
+      <p class="text-3xl font-bold text-white mb-4">Simple, Intuitive Slash Commands</p>
+      <p class="text-slate-400 text-sm max-w-lg mx-auto">LuMiBot fully integrates with native Discord slash commands (<code class="bg-slate-800 px-1.5 py-0.5 rounded text-discord">/</code>).</p>
+    </div>
+
+    <!-- Category Tabs -->
+    <div class="flex justify-center space-x-2 mb-8 overflow-x-auto pb-2">
+      <button class="bg-discord text-white px-4 py-2 rounded-lg text-sm font-medium">All Commands</button>
+      <button class="glass-card text-slate-300 hover:text-white px-4 py-2 rounded-lg text-sm font-medium">Moderation</button>
+      <button class="glass-card text-slate-300 hover:text-white px-4 py-2 rounded-lg text-sm font-medium">Utility</button>
+      <button class="glass-card text-slate-300 hover:text-white px-4 py-2 rounded-lg text-sm font-medium">Support</button>
+    </div>
+
+    <!-- Command List -->
+    <div class="space-y-3">
+      <div class="glass-card p-4 rounded-xl flex flex-col md:flex-row md:items-center justify-between gap-2">
+        <div class="flex items-center space-x-3">
+          <code class="bg-slate-800 text-discord px-2.5 py-1 rounded font-mono text-sm font-semibold">/warn [user] [reason]</code>
+          <span class="text-slate-200 text-sm font-medium">Issue a formal warning to a member and log the event.</span>
+        </div>
+        <span class="text-xs text-slate-500 bg-slate-800/60 px-2 py-1 rounded self-start md:self-auto">Moderator</span>
+      </div>
+
+      <div class="glass-card p-4 rounded-xl flex flex-col md:flex-row md:items-center justify-between gap-2">
+        <div class="flex items-center space-x-3">
+          <code class="bg-slate-800 text-discord px-2.5 py-1 rounded font-mono text-sm font-semibold">/ticket setup</code>
+          <span class="text-slate-200 text-sm font-medium">Create an interactive ticket creation embed in the current channel.</span>
+        </div>
+        <span class="text-xs text-slate-500 bg-slate-800/60 px-2 py-1 rounded self-start md:self-auto">Admin Only</span>
+      </div>
+
+      <div class="glass-card p-4 rounded-xl flex flex-col md:flex-row md:items-center justify-between gap-2">
+        <div class="flex items-center space-x-3">
+          <code class="bg-slate-800 text-discord px-2.5 py-1 rounded font-mono text-sm font-semibold">/serverinfo</code>
+          <span class="text-slate-200 text-sm font-medium">Display detailed metrics and channel overview for your server.</span>
+        </div>
+        <span class="text-xs text-slate-500 bg-slate-800/60 px-2 py-1 rounded self-start md:self-auto">Everyone</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Start Section -->
+  <section id="docs" class="py-16 px-6 max-w-5xl mx-auto border-t border-slate-800/60">
+    <div class="glass-card p-8 md:p-12 rounded-2xl text-center">
+      <h2 class="text-2xl font-bold text-white mb-4">Ready to set up LuMiBot?</h2>
+      <p class="text-slate-400 text-sm max-w-xl mx-auto mb-8">
+        Add LuMiBot to your server in seconds, configure your preferred modules using <code class="bg-slate-800 text-discord px-1.5 py-0.5 rounded">/config</code>, and you're good to go.
+      </p>
+      <a href="#" class="inline-flex items-center space-x-2 bg-discord hover:bg-discord/90 text-white font-semibold px-6 py-3 rounded-xl transition-all shadow-lg shadow-discord/30">
+        <i class="fa-brands fa-discord"></i>
+        <span>Add LuMiBot to Your Server</span>
+      </a>
+    </div>
+  </section>
 
   <!-- Footer -->
-  <footer class="py-6 px-6 border-t border-slate-800/80 bg-slate-950/40 text-center text-xs text-slate-500">
-    <p>LuMi Bot Website Prototypes — Designed for GitHub Pages</p>
+  <footer class="mt-auto border-t border-slate-800/80 bg-slate-900/50 py-8 px-6">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center text-sm text-slate-500 gap-4">
+      <div class="flex items-center space-x-2">
+        <i class="fa-solid fa-robot text-discord"></i>
+        <span class="text-slate-400 font-semibold">LuMiBot</span>
+        <span>© 2026. All rights reserved.</span>
+      </div>
+      <div class="flex space-x-6">
+        <a href="#" class="hover:text-slate-300 transition-colors">Privacy Policy</a>
+        <a href="#" class="hover:text-slate-300 transition-colors">Terms of Service</a>
+        <a href="#" class="hover:text-slate-300 transition-colors">Support Server</a>
+      </div>
+    </div>
   </footer>
 
 </body>
