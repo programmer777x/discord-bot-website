@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LuMiBot - Features & Documentation</title>
+  <title>LuMiBot - Feature Instructions</title>
   <!-- Tailwind CSS via CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Font Awesome Icons -->
@@ -161,7 +161,7 @@
       <div id="markdown-content">
         <div class="text-center py-12 text-slate-400">
           <i class="fa-solid fa-spinner animate-spin text-2xl text-discord mb-3"></i>
-          <p class="text-sm">Loading feature documentation...</p>
+          <p class="text-sm">Loading instructions documentation...</p>
         </div>
       </div>
     </div>
@@ -186,7 +186,7 @@
   <!-- Fetch and Render Markdown -->
   <script>
     document.addEventListener("DOMContentLoaded", function() {
-      fetch('features.md')
+      fetch('instructions.md')
         .then(response => {
           if (!response.ok) {
             throw new Error("HTTP error " + response.status);
@@ -197,11 +197,11 @@
           document.getElementById('markdown-content').innerHTML = marked.parse(markdown);
         })
         .catch(error => {
-          console.error("Error loading features.md:", error);
+          console.error("Error loading instructions.md:", error);
           document.getElementById('markdown-content').innerHTML = `
             <div class="text-center py-8">
-              <p class="text-red-400 font-bold mb-2">Unable to load features documentation.</p>
-              <p class="text-slate-400 text-xs">Ensure 'features.md' is placed in the same folder as 'features.html'.</p>
+              <p class="text-red-400 font-bold mb-2">Unable to load instructions documentation.</p>
+              <p class="text-slate-400 text-xs">Ensure 'instructions.md' is placed in the same folder as 'instructions.html'.</p>
             </div>
           `;
         });
