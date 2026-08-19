@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LuMiBot - Discord Bot Token Guide & Secure Submission</title>
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            discord: '#5865F2',
+            darkBg: '#0F172A',
+            cardBg: 'rgba(30, 41, 59, 0.7)',
+            accentCyan: '#06B6D4',
+            accentEmerald: '#10B981',
+          }
+        }
+      }
+    }
+  </script>
+  
+  <style>
+    .glass-card {
+      background: rgba(30, 41, 59, 0.6);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .glass-card-hover {
+      transition: all 0.3s ease;
+    }
+    .glass-card-hover:hover {
+      border-color: rgba(88, 101, 242, 0.4);
+      transform: translateY(-2px);
+    }
+
+    .step-number {
+      background: linear-gradient(135deg, #5865F2, #06B6D4);
+    }
+  </style>
+</head>
+<body class="bg-darkBg text-slate-100 font-sans antialiased min-h-screen flex flex-col">
+
+  <!-- Navigation -->
+  <nav class="sticky top-0 z-50 glass-card border-b border-slate-800 px-6 py-4">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+      <div class="flex items-center space-x-3">
+        <a href="index.html" class="flex items-center space-x-3">
+          <div class="w-10 h-10 rounded-full bg-discord flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-discord/30">
+            <i class="fa-solid fa-robot"></i>
+          </div>
+          <span class="text-xl font-bold tracking-wide text-white">LuMi<span class="text-discord">Bot</span></span>
+        </a>
+      </div>
+      <div class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-300">
+        <a href="index.html" class="hover:text-discord transition-colors">Home</a>
+        <a href="features.html" class="hover:text-discord transition-colors">Features</a>
+        <a href="index.html#commands" class="hover:text-discord transition-colors">Commands</a>
+        <a href="index.html#support" class="hover:text-discord transition-colors">Support</a>
+      </div>
+      <a href="#" class="bg-discord hover:bg-discord/90 text-white px-5 py-2.5 rounded-lg text-sm font-semibold transition-all shadow-md shadow-discord/20 flex items-center space-x-2">
+        <i class="fa-brands fa-discord"></i>
+        <span>Add to Discord</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- Hero Header -->
+  <header class="max-w-5xl mx-auto px-6 pt-12 pb-6 text-center">
+    <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-discord/10 border border-discord/30 text-discord text-xs font-semibold mb-4">
+      <i class="fa-solid fa-key"></i>
+      <span>Configuration & Onboarding</span>
+    </div>
+    <h1 class="text-3xl md:text-5xl font-extrabold text-white tracking-tight mb-4">
+      How to Obtain & Submit Your <span class="text-discord">Discord Bot Token</span>
+    </h1>
+    <p class="text-slate-400 text-base md:text-lg max-w-2xl mx-auto">
+      Follow these simple steps to set up your application on the Discord Developer Portal, configure required intents, and safely submit your bot credentials.
+    </p>
+  </header>
+
+  <!-- Main Instructions Content -->
+  <main class="max-w-4xl mx-auto px-6 py-8 flex-grow w-full space-y-8">
+
+    <!-- STEP 1 -->
+    <section class="glass-card p-6 md:p-8 rounded-2xl glass-card-hover">
+      <div class="flex items-start space-x-4">
+        <div class="step-number w-10 h-10 rounded-xl text-white font-bold text-lg flex items-center justify-center shrink-0 shadow-lg shadow-discord/20">
+          1
+        </div>
+        <div class="space-y-3 w-full">
+          <h2 class="text-xl font-bold text-white">Create Your Application</h2>
+          <p class="text-slate-300 text-sm leading-relaxed">
+            Navigate to the official <a href="https://discord.com/developers/applications" target="_blank" rel="noopener noreferrer" class="text-discord hover:underline font-semibold inline-flex items-center gap-1">Discord Developer Portal <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i></a> and sign in with your Discord account.
+          </p>
+          <ul class="list-disc pl-5 text-slate-400 text-sm space-y-1.5">
+            <li>Click the <strong class="text-slate-200">New Application</strong> button in the top right corner.</li>
+            <li>Type a name for your bot (e.g., <em class="text-slate-300">MyServer Assistant</em>) and accept the Developer Terms.</li>
+            <li>Click <strong class="text-slate-200">Create</strong> to open your new application settings.</li>
+            <li>Copy your <strong class="text-slate-200">Application ID</strong> from the <em>General Information</em> page—you will need this later!</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- STEP 2 -->
+    <section class="glass-card p-6 md:p-8 rounded-2xl glass-card-hover">
+      <div class="flex items-start space-x-4">
+        <div class="step-number w-10 h-10 rounded-xl text-white font-bold text-lg flex items-center justify-center shrink-0 shadow-lg shadow-discord/20">
+          2
+        </div>
+        <div class="space-y-3 w-full">
+          <h2 class="text-xl font-bold text-white">Enable Privileged Gateway Intents</h2>
+          <p class="text-slate-300 text-sm leading-relaxed">
+            LuMiBot requires specific permissions to read command messages and manage server members accurately.
+          </p>
+          <div class="bg-amber-500/10 border border-amber-500/30 rounded-xl p-4 text-xs text-amber-300 flex items-start space-x-3">
+            <i class="fa-solid fa-triangle-exclamation text-amber-400 text-base mt-0.5 shrink-0"></i>
+            <span><strong>Crucial Step:</strong> If these options are not toggled ON, the bot will fail to process commands or respond inside your server.</span>
+          </div>
+          <ul class="list-disc pl-5 text-slate-400 text-sm space-y-1.5">
+            <li>On the left sidebar menu, click on the <strong class="text-slate-200">Bot</strong> tab.</li>
+            <li>Scroll down to the <strong class="text-slate-200">Privileged Gateway Intents</strong> section.</li>
+            <li>Toggle <strong class="text-emerald-400">ON</strong> the following three switches:
+              <ul class="list-circle pl-5 mt-1 space-y-1 text-slate-300">
+                <li>• Presence Intent</li>
+                <li>• Server Members Intent</li>
+                <li>• Message Content Intent</li>
+              </ul>
+            </li>
+            <li>Click <strong class="text-slate-200">Save Changes</strong> at the bottom of the screen.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- STEP 3 -->
+    <section class="glass-card p-6 md:p-8 rounded-2xl glass-card-hover">
+      <div class="flex items-start space-x-4">
+        <div class="step-number w-10 h-10 rounded-xl text-white font-bold text-lg flex items-center justify-center shrink-0 shadow-lg shadow-discord/20">
+          3
+        </div>
+        <div class="space-y-3 w-full">
+          <h2 class="text-xl font-bold text-white">Reset & Copy Your Bot Token</h2>
+          <p class="text-slate-300 text-sm leading-relaxed">
+            Your Bot Token serves as the secret access key for your bot application.
+          </p>
+          <ul class="list-disc pl-5 text-slate-400 text-sm space-y-1.5">
+            <li>While still inside the <strong class="text-slate-200">Bot</strong> tab, locate the <strong class="text-slate-200">Build-A-Bot</strong> header.</li>
+            <li>Click the <strong class="text-slate-200">Reset Token</strong> button (you may be asked to enter a 2FA code).</li>
+            <li>Click <strong class="text-slate-200">Copy</strong> to copy the generated token string to your clipboard.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- STEP 4: FORM SECTION -->
+    <section id="submit-section" class="glass-card p-6 md:p-8 rounded-2xl border-2 border-discord/30 relative overflow-hidden">
+      
+      <div class="flex items-start space-x-4 mb-6">
+        <div class="step-number w-10 h-10 rounded-xl text-white font-bold text-lg flex items-center justify-center shrink-0 shadow-lg shadow-discord/20">
+          4
+        </div>
+        <div>
+          <h2 class="text-2xl font-extrabold text-white">Secure Token Submission</h2>
+          <p class="text-slate-400 text-sm">Submit your bot details below to complete your setup integration.</p>
+        </div>
+      </div>
+
+      <!-- Security Notice Banner -->
+      <div class="bg-red-500/10 border border-red-500/30 rounded-xl p-4 mb-6 text-xs text-red-300 flex items-start space-x-3">
+        <i class="fa-solid fa-shield-halved text-red-400 text-lg mt-0.5 shrink-0"></i>
+        <div>
+          <strong class="text-red-200 font-bold block mb-0.5">Security Notice:</strong>
+          Never share your personal Discord login password or Client Secret. Only provide the <strong>Bot Token</strong> generated in Step 3. All submissions are encrypted in transit.
+        </div>
+      </div>
+
+      <!-- Interactive Pre-Flight Checklist -->
+      <div class="bg-slate-900/60 border border-slate-800 rounded-xl p-4 mb-6 space-y-2">
+        <span class="text-xs font-bold text-slate-300 uppercase tracking-wider block mb-2">Pre-Submission Verification</span>
+        <label class="flex items-center space-x-3 text-xs text-slate-300 cursor-pointer">
+          <input type="checkbox" id="check-intents" class="w-4 h-4 rounded border-slate-700 text-discord focus:ring-discord/50 bg-slate-800" />
+          <span>I have enabled all 3 Gateway Intents (Presence, Server Members, Message Content).</span>
+        </label>
+        <label class="flex items-center space-x-3 text-xs text-slate-300 cursor-pointer">
+          <input type="checkbox" id="check-reset" class="w-4 h-4 rounded border-slate-700 text-discord focus:ring-discord/50 bg-slate-800" />
+          <span>I have copied the newly generated Bot Token from Step 3.</span>
+        </label>
+      </div>
+
+      <!-- Submission Form -->
+      <form id="tokenForm" class="space-y-5">
+        
+        <!-- Server Name -->
+        <div>
+          <label for="server_name" class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">
+            Discord Server / Community Name <span class="text-discord">*</span>
+          </label>
+          <input 
+            type="text" 
+            id="server_name" 
+            name="server_name" 
+            required 
+            placeholder="e.g., Gamer Haven Discord"
+            class="w-full bg-slate-900/80 border border-slate-700/80 rounded-lg px-4 py-3 text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:border-discord focus:ring-1 focus:ring-discord transition-all"
+          />
+        </div>
+
+        <!-- Contact Info -->
+        <div>
+          <label for="client_contact" class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">
+            Your Contact Info (Discord Username or Email) <span class="text-discord">*</span>
+          </label>
+          <input 
+            type="text" 
+            id="client_contact" 
+            name="client_contact" 
+            required 
+            placeholder="e.g., alex_dev or alex@example.com"
+            class="w-full bg-slate-900/80 border border-slate-700/80 rounded-lg px-4 py-3 text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:border-discord focus:ring-1 focus:ring-discord transition-all"
+          />
+        </div>
+
+        <!-- Bot Client ID -->
+        <div>
+          <label for="bot_client_id" class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">
+            Bot Application / Client ID <span class="text-discord">*</span>
+          </label>
+          <input 
+            type="text" 
+            id="bot_client_id" 
+            name="bot_client_id" 
+            required 
+            placeholder="e.g., 123456789012345678"
+            class="w-full bg-slate-900/80 border border-slate-700/80 rounded-lg px-4 py-3 text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:border-discord focus:ring-1 focus:ring-discord transition-all"
+          />
+        </div>
+
+        <!-- Discord Bot Token (Masked Input with Show/Hide Toggle) -->
+        <div>
+          <label for="discord_token" class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">
+            Discord Bot Token <span class="text-discord">*</span>
+          </label>
+          <div class="relative">
+            <input 
+              type="password" 
+              id="discord_token" 
+              name="discord_token" 
+              required 
+              placeholder="MT... (pasted bot token)"
+              class="w-full bg-slate-900/80 border border-slate-700/80 rounded-lg pl-4 pr-12 py-3 text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:border-discord focus:ring-1 focus:ring-discord transition-all font-mono"
+            />
+            <button 
+              type="button" 
+              id="toggleTokenVisibility" 
+              class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-200 transition-colors p-1"
+              title="Toggle Token Visibility"
+            >
+              <i class="fa-solid fa-eye" id="eyeIcon"></i>
+            </button>
+          </div>
+          <span id="tokenValidationError" class="text-red-400 text-xs hidden mt-1.5 block">
+            Please enter a valid Discord token format.
+          </span>
+        </div>
+
+        <!-- Feedback Alert Container -->
+        <div id="statusMessage" class="hidden p-4 rounded-xl text-xs leading-relaxed"></div>
+
+        <!-- Submit Button -->
+        <button 
+          type="submit" 
+          id="submitBtn" 
+          disabled
+          class="w-full bg-discord hover:bg-discord/90 text-white font-semibold py-3.5 px-6 rounded-xl transition-all shadow-lg shadow-discord/25 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2 text-sm"
+        >
+          <i class="fa-solid fa-paper-plane" id="btnIcon"></i>
+          <span id="btnText">Submit Bot Credentials</span>
+        </button>
+
+      </form>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="mt-auto border-t border-slate-800/80 bg-slate-900/50 py-8 px-6">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center text-sm text-slate-500 gap-4">
+      <div class="flex items-center space-x-2">
+        <i class="fa-solid fa-robot text-discord"></i>
+        <span class="text-slate-400 font-semibold">LuMiBot</span>
+        <span>© 2026. All rights reserved.</span>
+      </div>
+      <div class="flex space-x-6">
+        <a href="#" class="hover:text-slate-300 transition-colors">Privacy Policy</a>
+        <a href="#" class="hover:text-slate-300 transition-colors">Terms of Service</a>
+        <a href="#" class="hover:text-slate-300 transition-colors">Support Server</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script Handling Form Logic and Mediator API Dispatch -->
+  <script>
+    // Configuration Target: Render Flask Mediator Endpoint
+    const FLASK_API_ENDPOINT = "https://your-render-app.onrender.com/api/submit-token";
+
+    // UI Element References
+    const tokenForm = document.getElementById('tokenForm');
+    const tokenInput = document.getElementById('discord_token');
+    const toggleVisibilityBtn = document.getElementById('toggleTokenVisibility');
+    const eyeIcon = document.getElementById('eyeIcon');
+    const checkIntents = document.getElementById('check-intents');
+    const checkReset = document.getElementById('check-reset');
+    const submitBtn = document.getElementById('submitBtn');
+    const btnText = document.getElementById('btnText');
+    const btnIcon = document.getElementById('btnIcon');
+    const statusMessage = document.getElementById('statusMessage');
+    const tokenValidationError = document.getElementById('tokenValidationError');
+
+    // Password Visibility Toggle
+    toggleVisibilityBtn.addEventListener('click', () => {
+      if (tokenInput.type === 'password') {
+        tokenInput.type = 'text';
+        eyeIcon.classList.remove('fa-eye');
+        eyeIcon.classList.add('fa-eye-slash');
+      } else {
+        tokenInput.type = 'password';
+        eyeIcon.classList.remove('fa-eye-slash');
+        eyeIcon.classList.add('fa-eye');
+      }
+    });
+
+    // Checkbox Validation: Enable Submit button only when checklist is completed
+    function updateSubmitButtonState() {
+      submitBtn.disabled = !(checkIntents.checked && checkReset.checked);
+    }
+
+    checkIntents.addEventListener('change', updateSubmitButtonState);
+    checkReset.addEventListener('change', updateSubmitButtonState);
+
+    // Form Submission Handler
+    tokenForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const serverName = document.getElementById('server_name').value.trim();
+      const clientContact = document.getElementById('client_contact').value.trim();
+      const botClientId = document.getElementById('bot_client_id').value.trim();
+      const discordToken = tokenInput.value.trim();
+
+      // Basic Discord Token Structure Validation
+      if (discordToken.length < 50 || !discordToken.includes('.')) {
+        tokenValidationError.classList.remove('hidden');
+        return;
+      } else {
+        tokenValidationError.classList.add('hidden');
+      }
+
+      // UI State: Submitting
+      submitBtn.disabled = true;
+      btnText.textContent = "Encrypting & Transmitting...";
+      btnIcon.className = "fa-solid fa-spinner animate-spin";
+      statusMessage.classList.add('hidden');
+
+      // Build JSON Payload matching Flask backend expectations
+      const payload = {
+        server_name: serverName,
+        discord_token: discordToken,
+        client_contact: clientContact,
+        bot_client_id: botClientId
+      };
+
+      try {
+        const response = await fetch(FLASK_API_ENDPOINT, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(payload)
+        });
+
+        if (!response.ok) {
+          throw new Error(`Server returned status ${response.status}`);
+        }
+
+        const data = await response.json();
+
+        // UI State: Success
+        btnText.textContent = "Credentials Received Successfully";
+        btnIcon.className = "fa-solid fa-check";
+        submitBtn.className = "w-full bg-emerald-600 text-white font-semibold py-3.5 px-6 rounded-xl shadow-lg flex items-center justify-center space-x-2 text-sm";
+
+        statusMessage.className = "p-4 rounded-xl text-xs leading-relaxed bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 block";
+        statusMessage.innerHTML = `
+          <div class="flex items-center space-x-2 font-bold text-emerald-200 mb-1">
+            <i class="fa-solid fa-circle-check text-base"></i>
+            <span>Submission Complete!</span>
+          </div>
+          Your bot token and configuration details have been securely written to our server. You can now close this page.
+        `;
+
+        tokenForm.reset();
+
+      } catch (error) {
+        console.error("Token Submission Error:", error);
+
+        // UI State: Error Reset
+        submitBtn.disabled = false;
+        btnText.textContent = "Retry Submission";
+        btnIcon.className = "fa-solid fa-rotate-right";
+
+        statusMessage.className = "p-4 rounded-xl text-xs leading-relaxed bg-red-500/10 border border-red-500/30 text-red-300 block";
+        statusMessage.innerHTML = `
+          <div class="flex items-center space-x-2 font-bold text-red-200 mb-1">
+            <i class="fa-solid fa-triangle-exclamation text-base"></i>
+            <span>Submission Failed</span>
+          </div>
+          Unable to reach the submission server. Please check your network connection or try again shortly.
+        `;
+      }
+    });
+  </script>
+
+</body>
+</html>
